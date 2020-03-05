@@ -12,6 +12,5 @@ Created on Wed Mar  4 19:39:53 2020
 #171448
 # chilerismo
 
-import random
-import simpy
+import random, simpy
 
