@@ -43,7 +43,7 @@ env = simpy.Environment()
 RAM = simpy.Container(env, init=100, capacity=100)
 CPU = simpy.Resource(env, capacity = 1)
 intervalo = 10
-cantidad = 100
+cantidad = 25
 
 random.seed(10)
 
