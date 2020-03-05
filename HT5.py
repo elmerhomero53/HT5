@@ -37,3 +37,6 @@ def simulation(processName,x,waiting,CPU):
     totalTime = x.now - ready
     print ('%s  takes %f'% (processName, totalTime))
     wholeProcess = wholeProcess + totalTime
+    
+env = simpy.Environment()
+RAM = simpy.Container(env, init=100, capacity=100)
