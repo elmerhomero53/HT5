@@ -43,6 +43,7 @@ env = simpy.Environment()
 RAM = simpy.Container(env, init=100, capacity=100)
 CPU = simpy.Resource(env, capacity = 1)
 intervalo = 10
+cantidad = 100
 
 random.seed(10)
 
@@ -50,7 +51,12 @@ counter = 0
 
 for i in range(intervalo):
     env.process(simulation('Proceso ',env,random.expovariate(1.0/10),CPU))
+
+env.run(cantidad)
     
 print("chilerisimo")
+
+print ("The average time of the process is: ", counter/5.0)
+
 
 ##chilerisimo termino
