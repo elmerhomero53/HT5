@@ -16,7 +16,7 @@ import random, simpy
 
 def simulation(processName,x,waiting,CPU):
 
-    global wholeProcess 
+    global counter 
  
     yield x.timeout(waiting)
     
@@ -36,7 +36,21 @@ def simulation(processName,x,waiting,CPU):
         
     totalTime = x.now - ready
     print ('%s  takes %f'% (processName, totalTime))
-    wholeProcess = wholeProcess + totalTime
+    counter += totalTime
+
     
 env = simpy.Environment()
 RAM = simpy.Container(env, init=100, capacity=100)
+CPU = simpy.Resource(env, capacity = 1)
+intervalo = 10
+
+random.seed(10)
+
+counter = 0
+
+for i in range(intervalo):
+    env.process(simulation('Proceso ',env,random.expovariate(1.0/10),CPU))
+    
+print("chilerisimo")
+
+##chilerisimo termino
